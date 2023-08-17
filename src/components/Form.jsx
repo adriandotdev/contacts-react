@@ -16,14 +16,42 @@ function Form({ contactToUpdate, setContactToUpdate }) {
         mobileNumber: '',
         emailAddress: ''
     });
-    const [isFirstNameValid, setFirstNameValid] = useState(true);
+
+    const [validation, setValidation] = useState({
+        firstName: true,
+        middleName: true,
+        lastName: true,
+        mobileNumber: true,
+        emailAddress: true
+    })
+
+    const MOBILE_PHONE_PATTERN = /^09\d{9}$/;
+    const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@(gmail\.com|pragmanila\.com)$/i;
 
     const dispatch = useDispatch();
 
     const isRequiredFieldsProvided = () => {
 
+        if (!contact.firstName)
+            setValidation(prev => ({ ...prev, firstName: false }));
+
+        if (!contact.middleName)
+            setValidation(prev => ({ ...prev, middleName: false }));
+
+        if (!contact.lastName)
+            setValidation(prev => ({ ...prev, lastName: false }));
+
+        if (!EMAIL_PATTERN.test(contact.emailAddress))
+            setValidation(prev => ({ ...prev, emailAddress: false }));
+
+        if (!MOBILE_PHONE_PATTERN.test(contact.mobileNumber))
+            setValidation(prev => ({ ...prev, mobileNumber: false }));
+
         if (!contact.firstName || !contact.middleName ||
             !contact.lastName || !contact.mobileNumber || !contact.emailAddress)
+            return false;
+
+        if (!EMAIL_PATTERN.test(contact.emailAddress) || !MOBILE_PHONE_PATTERN.test(contact.mobileNumber))
             return false;
         return true;
     }
@@ -74,8 +102,16 @@ function Form({ contactToUpdate, setContactToUpdate }) {
 
     useEffect(() => {
 
-        if (contactToUpdate)
+        if (contactToUpdate) {
             setContact(contactToUpdate);
+            setValidation({
+                firstName: true,
+                middleName: true,
+                lastName: true,
+                mobileNumber: true,
+                emailAddress: true
+            })
+        }
         else
             setContact({
                 firstName: '',
@@ -84,6 +120,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                 mobileNumber: '',
                 emailAddress: ''
             });
+
     }, [contactToUpdate]);
 
     return (
