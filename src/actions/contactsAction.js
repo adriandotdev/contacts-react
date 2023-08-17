@@ -5,3 +5,17 @@ export const addContact = (payload) => {
         payload
     }
 }
+
+export const deleteContact = (payload) => {
+    return {
+        type: 'DELETE_CONTACT',
+        payload
+    }
+}
+
+export const updateContact = (payload) => {
+    return {
+        type: 'UPDATE_CONTACT',
+        payload
+    }
+}

@@ -2,7 +2,7 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../actions/contactsAction';
 
-function DeleteModal({ contactToDelete }) {
+function DeleteModal({ contactToDelete, setContactToUpdate }) {
 
     const dispatch = useDispatch();
 
@@ -15,11 +15,14 @@ function DeleteModal({ contactToDelete }) {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <p>{contactToDelete?.firstName + " " + contactToDelete?.middleName + " " + contactToDelete?.lastName}</p>
+                        <p className="h5">{contactToDelete?.firstName + " " + contactToDelete?.middleName + " " + contactToDelete?.lastName}</p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onClick={() => dispatch(deleteContact(contactToDelete.id))} type="button" className="btn btn-danger" data-bs-dismiss="modal">Confirm</button>
+                        <button onClick={() => {
+                            dispatch(deleteContact(contactToDelete.id));
+                            setContactToUpdate(null)
+                        }} type="button" className="btn btn-danger" data-bs-dismiss="modal">Confirm</button>
                     </div>
                 </div>
             </div>
