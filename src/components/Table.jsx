@@ -33,7 +33,9 @@ function Table({ setContactToUpdate }) {
 
                                     </button>
                                     <ul className="dropdown-menu">
-                                        <li className='dropdown-item' onClick={() => setContactToUpdate(contact)}>Update</li>
+                                        <li className='dropdown-item' onClick={() => {
+                                            setContactToUpdate(contact);
+                                        }}>Update</li>
                                         <li onClick={() => setContactToDelete(contact)} type="" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                             Delete Contact
                                         </li>
