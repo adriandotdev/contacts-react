@@ -9,6 +9,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
 
     const firstNameFieldRef = useRef();
 
+    // This is the input field for the forms
     const [contact, setContact] = useState({
         firstName: '',
         middleName: '',
@@ -17,6 +18,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
         emailAddress: ''
     });
 
+    // This is the booleans for each input field to know if it is valid or invalid.
     const [validation, setValidation] = useState({
         firstName: true,
         middleName: true,
@@ -25,11 +27,13 @@ function Form({ contactToUpdate, setContactToUpdate }) {
         emailAddress: true
     })
 
+    // Patterns to be followed for mobile phone, and email.
     const MOBILE_PHONE_PATTERN = /^09\d{9}$/;
     const EMAIL_PATTERN = /^[a-zA-Z0-9._%+-]+@(gmail\.com|pragmanila\.com)$/i;
 
     const dispatch = useDispatch();
 
+    // A function that checks if all the required fields are provided.
     const isRequiredFieldsProvided = () => {
 
         if (!contact.firstName)
@@ -56,6 +60,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
         return true;
     }
 
+    // A function that adds a new contact to the list.
     const add = (e) => {
 
         e.preventDefault();
@@ -80,6 +85,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
         }
     }
 
+    // A function that updates the selected contact.
     const update = (e) => {
 
         e.preventDefault();
@@ -123,7 +129,10 @@ function Form({ contactToUpdate, setContactToUpdate }) {
     return (
         <form onSubmit={contactToUpdate ? update : add} className='d-flex flex-column'>
             <section>
+
+                {/* First Name */}
                 <label htmlFor="first-name" className="form-label">First Name</label>
+
                 <input ref={firstNameFieldRef} value={contact.firstName} onChange={(e) => {
                     setContact({ ...contact, firstName: e.target.value })
 
@@ -134,11 +143,15 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                         setValidation({ ...validation, firstName: true });
                     }
                 }} type="text" name="first-name" id="first-name" className={`form-control ${validation.firstName ? '' : 'is-invalid'}`} />
+
                 {!validation.firstName && <small className='text-danger fw-bold'>Please provide your first name</small>}
             </section>
 
             <section className='mt-2'>
+
+                {/* Middle Name */}
                 <label htmlFor="first-name" className="form-label">Middle Name</label>
+
                 <input value={contact.middleName} onChange={(e) => {
                     setContact({ ...contact, middleName: e.target.value })
 
@@ -149,11 +162,15 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                         setValidation({ ...validation, middleName: true });
                     }
                 }} type="text" name="middle-name" id="middle-name" className={`form-control ${validation.middleName ? '' : 'is-invalid'}`} />
+
                 {!validation.middleName && <small className='text-danger fw-bold'>Please provide your middle name</small>}
             </section>
 
             <section className='mt-2'>
+
+                {/* Last Name */}
                 <label htmlFor="first-name" className='form-label'>Last Name</label>
+
                 <input value={contact.lastName} onChange={(e) => {
                     setContact({ ...contact, lastName: e.target.value });
 
@@ -164,11 +181,15 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                         setValidation({ ...validation, lastName: true });
                     }
                 }} type="text" name="last-name" id="last-name" className={`form-control ${validation.lastName ? '' : 'is-invalid'}`} />
+
                 {!validation.lastName && <small className='text-danger fw-bold'>Please provide your last name</small>}
             </section>
 
             <section className='mt-2'>
+
+                {/* Mobile Number */}
                 <label htmlFor="first-name" className='form-label'>Mobile Number</label>
+
                 <input value={contact.mobileNumber} onChange={(e) => {
                     setContact({ ...contact, mobileNumber: e.target.value });
 
@@ -178,11 +199,15 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                         setValidation({ ...validation, mobileNumber: true });
 
                 }} type="text" name="mobile-number" id="mobile-number" className={`form-control ${validation.mobileNumber ? '' : 'is-invalid'}`} />
+
                 {!validation.mobileNumber && <small className='text-danger fw-bold'>Please provide a valid phone number. (E.g. 09234451123) It must be start at 09, and follow by 9 digits.</small>}
             </section>
 
             <section className='mt-2'>
+
+                {/* Email Address */}
                 <label htmlFor="first-name" className='form-label'>Email Address</label>
+
                 <input value={contact.emailAddress} onChange={(e) => {
 
                     setContact({ ...contact, emailAddress: e.target.value });
@@ -193,6 +218,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                         setValidation({ ...validation, emailAddress: true });
 
                 }} type="email" name="email" id="email" className={`form-control ${validation.emailAddress ? '' : 'is-invalid'}`} />
+
                 {!validation.emailAddress && <small className='text-danger fw-bold'>Please provide a valid email. Accepted emails are email@gmail.com, and email@pragmanila.com</small>}
             </section>
 

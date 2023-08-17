@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css';
 import Form from './components/Form';
 import Table from './components/Table';
-import Modal from './components/Modal';
 
 function App() {
 
@@ -11,7 +10,7 @@ function App() {
   return (
     <main className='row px-4 py-5'>
 
-      <div className=' contact-form-container col col-xl-3 col-xxl-2 border py-3 mb-3'>
+      <div className='contact-form-container col col-xl-3 col-xxl-2 border py-3 mb-3'>
 
         <h1 className='h5'>Create New Contact</h1>
         <Form contactToUpdate={contactToUpdate} setContactToUpdate={setContactToUpdate} />
@@ -21,8 +20,6 @@ function App() {
 
         <Table setContactToUpdate={setContactToUpdate} />
       </div>
-
-      <Modal />
     </main >
   )
 }
