@@ -32,5 +32,13 @@
 ## Rules/Pointers:
 - Clearly written code is a big plus
 - Commit codes eligibly by specifying what has been change
- 
 
+## User Interface
+![Web capture_17-8-2023_234958_localhost](https://github.com/adriandotdev/contacts-react/assets/63532775/2a1f87b5-d1eb-458c-8558-1be5b0352e67)
+
+## Technologies Used
+<div>
+    <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+     <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+</div>
+          
