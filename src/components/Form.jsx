@@ -142,7 +142,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                     else {
                         setValidation({ ...validation, firstName: true });
                     }
-                }} type="text" name="first-name" id="first-name" className={`form-control ${validation.firstName ? '' : 'is-invalid'}`} />
+                }} placeholder='Ex. John' type="text" name="first-name" id="first-name" className={`form-control ${validation.firstName ? '' : 'is-invalid'}`} />
 
                 {!validation.firstName && <small className='text-danger fw-bold'>Please provide your first name</small>}
             </section>
@@ -161,7 +161,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                     else {
                         setValidation({ ...validation, middleName: true });
                     }
-                }} type="text" name="middle-name" id="middle-name" className={`form-control ${validation.middleName ? '' : 'is-invalid'}`} />
+                }} placeholder='Ex. Hayward' type="text" name="middle-name" id="middle-name" className={`form-control ${validation.middleName ? '' : 'is-invalid'}`} />
 
                 {!validation.middleName && <small className='text-danger fw-bold'>Please provide your middle name</small>}
             </section>
@@ -180,7 +180,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                     else {
                         setValidation({ ...validation, lastName: true });
                     }
-                }} type="text" name="last-name" id="last-name" className={`form-control ${validation.lastName ? '' : 'is-invalid'}`} />
+                }} placeholder='Ex. Doe' type="text" name="last-name" id="last-name" className={`form-control ${validation.lastName ? '' : 'is-invalid'}`} />
 
                 {!validation.lastName && <small className='text-danger fw-bold'>Please provide your last name</small>}
             </section>
@@ -198,7 +198,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                     else
                         setValidation({ ...validation, mobileNumber: true });
 
-                }} type="text" name="mobile-number" id="mobile-number" className={`form-control ${validation.mobileNumber ? '' : 'is-invalid'}`} />
+                }} placeholder='Ex. 09321152341' type="text" name="mobile-number" id="mobile-number" className={`form-control ${validation.mobileNumber ? '' : 'is-invalid'}`} />
 
                 {!validation.mobileNumber && <small className='text-danger fw-bold'>Please provide a valid phone number. (E.g. 09234451123) It must be start at 09, and follow by 9 digits.</small>}
             </section>
@@ -217,7 +217,7 @@ function Form({ contactToUpdate, setContactToUpdate }) {
                     else
                         setValidation({ ...validation, emailAddress: true });
 
-                }} type="email" name="email" id="email" className={`form-control ${validation.emailAddress ? '' : 'is-invalid'}`} />
+                }} placeholder='Ex. johndoe@pragmanila.com' type="email" name="email" id="email" className={`form-control ${validation.emailAddress ? '' : 'is-invalid'}`} />
 
                 {!validation.emailAddress && <small className='text-danger fw-bold'>Please provide a valid email. Accepted emails are email@gmail.com, and email@pragmanila.com</small>}
             </section>
